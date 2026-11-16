@@ -1,0 +1,30 @@
+
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.set_theme(style="whitegrid")
+
+die_faces = np.arange(1, 7)
+joint_pmf = np.zeros((6, 6))
+
+# Calculate Joint PMF
+for i in range(6):
+    for j in range(6):
+        joint_pmf[i, j] = (1/6) * (1/6)
+
+# Plot Heatmap
+plt.figure(figsize=(6, 5))
+sns.heatmap(
+    joint_pmf,
+    annot=True,
+    fmt=".3f",
+    cmap="YlGnBu",
+    xticklabels=die_faces,
+    yticklabels=die_faces
+)
+
+plt.title('Joint PMF of Two Fair Dice')
+plt.xlabel('Die 2 Outcome (Y)')
+plt.ylabel('Die 1 Outcome (X)')
+plt.show()
